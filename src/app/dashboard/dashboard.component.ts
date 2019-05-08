@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 interface Metric {
   used: number;
@@ -23,6 +23,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   cluster2: Node[];
   interval: any;
 
+  @Output()
+  onRefresh: EventEmitter<Date> = new EventEmitter<Date>();
+
   constructor() {}
 
   ngOnInit() {
@@ -46,6 +49,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     for (let i = 4; i < 7; i++) {
       this.cluster2.push(this.randomNode(i));
     }
+
+    this.onRefresh.emit(new Date());
   }
 
   private randomNode(i: number): Node {

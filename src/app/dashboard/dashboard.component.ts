@@ -5,7 +5,7 @@ interface Metric {
   available: number;
 }
 
-interface Node {
+export interface Node {
   name: string;
   cpu: Metric;
   mem: Metric;

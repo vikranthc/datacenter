@@ -7,8 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MetricComponent implements OnInit {
 
-  @Input() title = '';
-  @Input() description = '';
   @Input() used = 0;
   @Input() max = 100;
 
